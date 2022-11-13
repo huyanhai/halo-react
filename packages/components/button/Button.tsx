@@ -1,25 +1,31 @@
-import React, { useState } from "react";
-const Button = (props: any) => {
+import React, { useState, forwardRef, type ForwardRefRenderFunction, type ReactNode, type ForwardedRef, useContext } from "react";
+
+import { GlobalContext } from "../provider/Provider";
+
+interface IButtonProps {
+  onClick?: (v: number) => void;
+  children?: ReactNode;
+  ref?: ForwardedRef<any>;
+}
+
+const Button: ForwardRefRenderFunction<HTMLButtonElement, IButtonProps> = (props, ref) => {
   const [count, setCount] = useState(0);
+  const { onClick, children } = props;
+  const { lang, theme } = useContext(GlobalContext);
 
   const show = () => {
     setCount(count + 1);
-    props.show(count);
-  };
-
-  const showObj = () => {
-    props.showObj({
-      name: "test",
-      age: 10,
-    });
+    onClick && onClick(count);
   };
 
   return (
     <>
-      <button onClick={show}>{props.children ? props.children : "默认文案"}</button>
-      <button onClick={showObj}>对象</button>
+      <button ref={ref} onClick={show}>
+        {lang}
+        {children ? children : "默认文案"}
+      </button>
     </>
   );
 };
 
-export default Button;
+export default forwardRef<HTMLButtonElement, IButtonProps>(Button);

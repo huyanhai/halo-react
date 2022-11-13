@@ -1,9 +1,15 @@
-import React from "react";
+import React, { type FC, type ReactNode } from "react";
 
-const Text = () => {
+interface ITextProps {
+  children?: ReactNode;
+}
+
+const Text: FC<ITextProps> = (props) => {
+  const { children } = props;
+
   return (
     <>
-      <p>文本</p>
+      <p>{children ? children : "默认文本"}</p>
     </>
   );
 };
