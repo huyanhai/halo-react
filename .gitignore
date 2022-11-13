@@ -1,0 +1,9 @@
+.vscode
+.idea
+
+.DS_Store
+*.local
+devops-notification
+*.lock
+*.log
+demo
