@@ -1,0 +1,1 @@
+import e,{useState as l}from"react";const o=t=>{const[n,u]=l();return e.createElement(e.Fragment,null,e.createElement("button",{onClick:()=>{u(n+1),t.show(n)}},t.children?t.children:"\u9ED8\u8BA4\u6587\u6848"))},c=()=>e.createElement(e.Fragment,null,e.createElement("p",null,"\u6587\u672C"));export{o as Button,c as Text};

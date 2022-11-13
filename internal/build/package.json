@@ -1,0 +1,22 @@
+{
+  "name": "@halo/build",
+  "main": "index.ts",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "gulp --require sucrase/register/ts  -f gulpfile.ts"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/gulp": "^4.0.9",
+    "esbuild": "^0.14.39",
+    "fast-glob": "^3.2.11",
+    "rollup": "^2.79.1",
+    "rollup-plugin-esbuild": "^4.9.1"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}
