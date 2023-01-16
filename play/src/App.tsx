@@ -2,8 +2,7 @@ import { useState, createRef } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
-import { Button, Text, Provider } from "../../packages/halo";
-import List from "./components/List";
+import { Button, Text, Provider, Alter } from "../../packages/halo";
 
 function App() {
   const [lang, setLang] = useState<"zh" | "en" | "ja">("zh");
@@ -11,6 +10,7 @@ function App() {
 
   const changeLang = (v: number) => {
     setLang(lang === "zh" ? "en" : "zh");
+    Alter("消息");
   };
 
   return (
@@ -19,8 +19,6 @@ function App() {
         <Button onClick={changeLang} ref={ref}>
           按钮文字
         </Button>
-        <Text>文本</Text>
-        <List />
       </Provider>
     </div>
   );
